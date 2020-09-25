@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    date: 10/29/19
+-->
+
+<html lang= "en">
+	<head>
+        <meta charset ="UTF-8">
+		<title>Jk4g2AJAX</title>
+        <link rel="stylesheet" type="text/css" href="Jk4g2AJAX.css">
+        <script>
+    
+        window.onload = function(){
+            
+            //infoData
+            var xmlHttp = new XMLHttpRequest();    
+            xmlHttp.onreadystatechange = function(){
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                    var response = xmlHttp.responseText;
+                    document.getElementById("infoData").innerHTML = response;
+                }
+            };
+            
+            document.getElementById("infoData").innerHTML = "Loading..."
+            xmlHttp.open("GET","http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=info",true);
+            xmlHttp.send();
+            
+            //Current Assignments
+            var xmlHttp1 = new XMLHttpRequest();    
+            xmlHttp1.onreadystatechange = function(){
+                if(xmlHttp1.readyState == 4 && xmlHttp1.status == 200){
+                    var xmlDoc = xmlHttp1.responseXML;
+                    var value = xmlDoc.getElementsByTagName("currentAssignment");
+                    
+                    var sent = value[0].getElementsByTagName("assignmentName")[0].childNodes[0].nodeValue;
+                    var time = Number(value[0].getElementsByTagName("dueDateTimestamp")[0].childNodes[0].nodeValue);
+                    var date = new Date(time);
+                    
+                    var output = sent + " is due on " + date;
+                    
+                    document.getElementById("curAssign").innerHTML = output;
+                    
+                }
+            };         
+            document.getElementById("curAssign").innerHTML = "Loading..."
+            xmlHttp1.open("GET","http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=currentAssignment&format=xml",true);
+            xmlHttp1.send();
+            
+            //Next Class
+            var xmlHttp2 = new XMLHttpRequest();    
+            xmlHttp2.onreadystatechange = function(){
+                if(xmlHttp2.readyState == 4 && xmlHttp2.status == 200){
+                    var nextClass = document.getElementById("nextClass");
+    
+                    var response = xmlHttp2.responseText;
+					response = JSON.parse(response);
+                    
+                    var time = new Date(response.nextClassTimestamp);
+                    
+					nextClass.innerHTML = time;
+                }
+            };         
+            document.getElementById("nextClass").innerHTML = "Loading...";
+            xmlHttp2.open("GET","http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=nextClassDate&format=json" ,true);
+            xmlHttp2.send();
+            
+
+            };
+            
+            function openDay(day){
+                document.getElementById("officeInfo").innerHTML= "Loading...";
+                var xmlHttp0 = new XMLHttpRequest();   
+                
+                xmlHttp0.onreadystatechange = function(){
+                    if(xmlHttp0.readyState == 4 && xmlHttp0.status == 200){
+                        document.getElementById("officeInfo").innerHTML = "";
+                        var json = JSON.parse(xmlHttp0.responseText);
+                        for(var i = 0; i<json.officeHours.length; i++){
+                            var person = json.officeHours[i].person;
+                            var time = json.officeHours[i].time;
+                            var location = json.officeHours[i].location;
+                            document.getElementById("officeInfo").innerHTML += person + " has office hours from " + time + " at " + location + "<br>"; 
+                        }   
+                    }
+                };
+                
+                
+                var url = "";
+                if(day == "monday"){
+                    url = "http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=officeHours&format=json&day=monday";
+                } else if(day == "tuesday"){
+                    url = "http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=officeHours&format=json&day=tuesday";
+                } else if(day == "wednesday"){
+                    url = "http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=officeHours&format=json&day=wednesday";
+                } else if(day == "thursday"){
+                    url = "http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=officeHours&format=json&day=thursday";
+                } else{
+                    url = "http://ec2-18-219-205-255.us-east-2.compute.amazonaws.com/CS2830/classInfo.php?content=officeHours&format=json&day=friday";
+                }
+                
+                xmlHttp0.open("GET", url ,true);
+                xmlHttp0.send();
+    
+            }
+            
+        </script>
+	</head>
+	<body>
+        <div id="mainContainer">
+            <h1 id="title">CS/IT 2830 Dashboard</h1>
+            <p id="infoData"></p>
+            <div id="wrapperDiv" class="clearhack">
+                <div id="left">
+                    <h3>Current assignment:</h3>
+                    <p id=curAssign></p>
+                </div>
+                
+                <div id="right">
+                    <h3>Next Class:</h3>
+                    <p id="nextClass"></p>
+                </div>
+                
+                <div id="bottomDiv">
+                    <h3>Office hour info:</h3>
+                    <div class="tab">
+                        <button onclick="openDay('monday')" >Monday</button>
+                        <button onclick="openDay('tuesday')">Tuesday</button>
+                        <button onclick="openDay('wednesday')">Wednesday</button>
+                        <button onclick="openDay('thursday')">Thursday</button>
+                        <button onclick="openDay('friday')">Friday</button>
+                    </div>
+                    <p id= "officeInfo"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

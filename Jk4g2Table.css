@@ -1,0 +1,119 @@
+#nav {
+    background-color: #34a0ff;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+}
+#nav a:hover{
+    background-color: coral;
+    color:aliceblue;
+}
+body{
+    background-color: orange;
+    margin-left: 0px;
+}
+.name {
+    margin: 10px;
+    font-size: 35px;
+    display: block;
+    color: aliceblue;
+    font-weight: bold;
+}
+table{
+    width: 100%;
+    border: 5px solid black;
+    font-family: "Arial", "Helvetica", "sans-serif";
+    margin: auto;
+    border-collapse:collapse;
+}
+
+td, th{
+    border: 5px solid black;
+    font-family: "Arial", "Helvetica", "sans-serif";
+
+}
+#leftHeader{
+    background-color: aqua;
+    color: blue;
+}
+#rightHeader{
+    background-color: aquamarine;
+}
+#tableHeader1{
+    background-color: chartreuse;
+    color: cornflowerblue;
+}
+#tableHeader2{
+    background-color: beige;
+} 
+#header{
+    background-color:azure;
+    color:darkblue;
+}
+.oddColumn{
+    text-align: center;
+}
+.oddRow{
+    background-color:white;
+}
+.evenRow{
+    background-color: gainsboro;
+}
+.gradeCell100{
+    background-color: gray;
+}
+.gradeCellNot100{
+    background-color: red;
+}
+#wrapperDiv{
+    width: 80%;
+    box-shadow: 5px 5px 5px blue;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+.imageLeft1{
+    height: 200px;
+}
+#imageLeft{
+    height: 300px;
+    float: left;
+    border: 1px solid black;
+    margin: 10px;
+}
+#middleDiv{
+    width: 45%;
+    float:left;
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: normal;
+}
+#middleDiv hr{
+    margin-left: 0px;
+    width: 50%;
+}
+.rightDiv{
+    margin-top: 40px;
+    margin-right: 15px;
+    float: right;
+    width: 40;
+    font-size: 15px;
+    text-align: right;
+}
+#current{
+    background-color: lightgray;
+}
+            
+.rightDiv p{
+    font-size: 20px;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: normal;
+}
+.clearhack:after{
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -1,0 +1,32 @@
+/* Created by Professor Wergeles for CS2830 at the University of Missouri */
+#loginWidget {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+#loginWidget > h1 {
+    margin: 0;
+    padding: 2px;
+}
+#loginWidget form {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    padding: 0.5em 0;
+    border-radius: 0 0 10px 10px;
+}
+#loginWidget form label {
+    width: 95px;
+    text-align: right;
+    display: inline-block;
+}
+#loginWidget div.stack {
+    margin: 1em 0;
+}
+div.ui-state-error {
+    padding: 4px 0;
+}
+div.pageWidget {
+    width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}

@@ -1,0 +1,37 @@
+<?php
+//	// A user has to have logged in order to have this 'username' cookie
+//	$username = empty($_COOKIE['username']) ? '' : $_COOKIE['username'];
+//	
+//	// If the cookie isn't there, send them back to the login
+//	if (!$username) {
+//		header("Location: index.php");
+//		exit;
+//	} else{
+?>
+
+<!DOCTYPE html>
+<html lang= "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>Video Page</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            window.onload = function(){
+                    $.get("navbar.html", function(data){
+                    $("#loadingNav").html(data);
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <div id="loadingNav"></div>
+        <div id ="video">
+            <H1 class = "title">NBA Video</H1>
+                <iframe src="https://www.youtube.com/embed/zDZsjwZoBrY">
+                </iframe>
+            <h5 id="reference">Video from <a href="https://www.youtube.com/watch?v=zDZsjwZoBrY">https://www.youtube.com/watch?v=zDZsjwZoBrY</a></h5>
+        </div>
+    </body>
+</html>
+<?php }?>

@@ -1,0 +1,48 @@
+<?php
+//	// A user has to have logged in order to have this 'username' cookie
+//	$username = empty($_COOKIE['username']) ? '' : $_COOKIE['username'];
+//	
+//	// If the cookie isn't there, send them back to the login
+//	if (!$username) {
+//		header("Location: index.php");
+//		exit;
+//	} else{
+?>
+
+<!DOCTYPE html>
+
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    CS2830
+    Final Project    
+-->
+
+<html lang= "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>mainPage</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            window.onload = function(){
+                    $.get("navbar.html", function(data){
+                    $("#loadingNav").html(data);
+                });
+            };
+        </script>
+        <style>
+            #input{
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loadingNav"></div>
+        <div id="mains"><br><br><br>
+            <img src="pictures/NBALogo.png" alt="NBA" id="logo">
+            <center><h2>Created by Tim</h2></center>
+        </div>
+    </body>
+</html>
+//<?php }?>

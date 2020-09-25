@@ -1,0 +1,149 @@
+/*5
+    reference:
+        https://www.w3schools.com/css/css_navbar.asp
+*/
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: dodgerblue;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: lavender;
+    text-align: center;
+    padding: 14px 16px;
+    font-weight:bold;
+    font-size: 20px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+li a:hover {
+    background-color: red;
+}
+
+li#last{
+    float:right;
+    display: block;
+    color: lavender;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#mainContainer{
+    margin: auto;
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding:30px;
+    flex-wrap: wrap;
+    position:relative;
+}
+
+#matches{
+    font-size:20px;
+    text-align: center;
+}
+
+.searchingDiv{
+    width:100%;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    display:block;
+    position: relative;
+}
+#searchingBar{
+    width: 60%;
+    height:30px;
+    font-size: 30px;
+    color: black;
+}
+
+#buttonDiv{
+    width:100%;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom:10px;
+    display:block;
+    position: relative;
+    
+}
+.button{
+    width: 150px;
+    height: 30px;
+    text-align:center;
+    font-size: 20px;
+    background-color: powderblue;
+    color: black;
+    cursor:pointer;
+}
+#playersDiv{
+    margin:auto;
+    text-align: center;
+    
+}
+#wrapperDiv{
+    width: 80%;
+    box-shadow: 2px 3px 3px blue;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid black;
+}
+#imageLeft{
+    height: 250x;
+    float: left;
+    border: 1px solid black;
+    margin: 10px;
+}
+#image{
+    height:325px;
+    width:220px;
+}
+#middleDiv{
+    font-size: 20px;
+    
+}
+#player{
+    margin:10px;
+    font-size:40px;
+    font-weight: bold;
+}
+.title{
+    text-align: center;
+    font-size:50px;
+}
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+}
+iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-30px;
+    width: 70%;
+    height: 600px;
+}
+h5{
+    text-align: center;
+}
+

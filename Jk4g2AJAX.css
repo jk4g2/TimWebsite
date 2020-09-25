@@ -1,0 +1,112 @@
+body{
+    background-color: floralwhite;
+}
+#mainContainer{
+    width: 65%;
+    border: 3px solid black; 
+    border-radius: 100px; 
+    padding: 30px; 
+    margin: 50px auto;
+    position: relative;
+    background-color: rgba(223, 255, 213, 0.17);
+
+}
+#title{
+    text-align: center;
+    font-size: 40px;
+}
+#infoData{
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    text-align: center;
+    
+}
+#wrapperDiv{
+    margin: 20px auto;
+    width: 90%;
+    height: 500px;
+    text-align: center;
+    display:flex;
+    flex-wrap: wrap;
+}
+#curAssign{
+    text-align: center;
+    font-size: 17px;
+}
+#nextClass{
+    text-align: center;
+    font-size: 17px;
+}
+
+#left, #right{
+    border:2px solid black;
+    border-radius: 10px;
+    width: 40%;
+    height: 200px;
+    margin: auto;
+    padding: 15px;
+    float: left;
+    display: inline-block;
+    background-color:#fff6e3;
+}
+
+#bottomDiv{
+    border:2px solid black;
+    border-radius: 10px;
+    width: 40%;
+    height: 210px;
+    margin: auto;
+    padding: 15px;
+    float: left;
+    display: wrap;
+    background-color:#fff6e3;
+}
+
+#bottomDiv{
+    width: 90%;
+    border: 2px solid black;
+    border-radius:10px;
+    position: relative;
+}
+.clearhack:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: bisque;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-weight:bold;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button:focus {
+    background-color: yellowgreen;
+}
+
+.tab button:active {
+    background-color: yellowgreen;
+}
+
+#officeInfo{
+    font-size:17px;
+}

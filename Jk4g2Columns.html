@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    date: 10/13/19
+    Challenge: Web Servers
+-->
+<html lang = "en">
+    <head>
+    <meta charset = "utf-8">
+        <title>Jk4g2Columns</title>
+            <style>
+
+                body {
+                    margin-left: 0;
+                    background-color: powderblue;
+                }
+                #nav {
+                    background-color: #34a0ff;
+                    width: 100%;
+                    position: fixed;
+                    top: 0;
+                    margin: 0;
+                }
+                #nav a:hover{
+                    background-color: coral;
+                    color:aliceblue;
+                }
+                .name {
+                    margin: 10px;
+                    font-size: 35px;
+                    display: block;
+                    color: aliceblue;
+                    font-weight: bold;
+                }
+                H2{
+                    text-align: center;
+                    line-height: 10px;
+                }
+                
+                #mainWrapper{
+                    background-color: aliceblue;
+                    margin: auto;
+                    width: 1092px;
+                    border: 8px;
+                    border-color: black;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+                
+                #rowWrappers{
+                    float: left;
+                    width: 432px;
+                    margin: 18px;
+                }
+                
+                .columns {
+                    float: left;
+                    padding: 18px;
+                    margin: 18px;
+                    height: 390px;
+                    border: 8px solid black;
+                    border-radius: 10px;
+                }
+                #current{
+                    background-color: lightgray;
+                }
+            
+                #left{
+                    width: 239px;
+                    background-color: beige;
+                }
+                #right{
+                    width: 209px;
+                    background-color: #d8b43c;
+                }
+                #top{
+                    width: 376px;
+                    height: 190px;
+                    padding: 20px;
+                    border: 8px solid black;
+                    border-radius: 10px;
+                    background-color: #0aff00;
+                    line-height: 15px;
+                }
+                #bottom{
+                    background-color: azure;
+                    width: 376px;
+                    height: 120px;
+                    padding: 20px;
+                    border: 8px solid black;
+                    margin-top: 20px;
+                }
+                .clearhack:after{
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+            </style>
+    </head>
+    
+    <body>
+        <nav id = "nav">
+            <span class = "name" ><a href = "index.html">Tim Kwon</a> | <a href = "Jk4g2Columns.html" id = "current">Skills</a> <a href = "Jk4g2Table.html">Classes</a> <a href = "Jk4g2Projects.html">Projects</a> </span>
+        </nav>
+        <br><br><br>
+        <!-- Main wrapper. This div should wrap all columns, row wrapper, and title header -->
+        <div id = "mainWrapper" class= "clearhack">
+            <H2>skills</H2>
+            <!-- Left Column -->
+            <!-- Put left column physical width calculations here: 
+            
+                239px -> Content width
+            +    36px -> left padding + right padding
+            +    16px -> left border + right border
+            +    36px -> left margin + right margin
+            - - - - - - - - - - - - - - - - - - - - - - 
+                327px -> left column physical width 
+
+            -->
+            <div id = "left" class = "columns">
+                 <H2>Languages</H2><hr>    
+                    <ul><li>C</li>
+                    <li>C#</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>SQL</li>
+                    <li>Assembly</li>
+                    <li>CSS</li>
+                    <li>Html</li>
+                    </ul>
+            </div>
+            
+            
+            <!-- Row Wrapper. This div will contain two rows -->
+            <!--Put middle column physical width calculations here:
+
+                432px -> Content width
+            +    36px -> left margin + right margin
+            - - - - - - - - - - - - - - - - - - - - - -  
+                468px -> middle column physical width
+-->
+            <div id = "rowWrappers">
+                <div id = "top">
+                    <H2>Course Work</H2><hr>
+                    <ul><li>DSGN and ANLY of Algorithm</li>
+                    <li>Objected Oriented Programing/ Design</li>
+                    <li>Computer Org and Assembly Languages</li>
+                    <li>Database</li>
+                    <li>SoftWare Engineering</li>
+                    <li>Operating Systems</li>
+                    <li>Cloud Computing</li>
+                    <li>Computer Networks</li>
+                    <li>C#/.Net development</li></ul>
+                </div>
+                <div id = "bottom">
+                    <H2>Others</H2><hr>
+                    <ul><li>Consultant: Mizzou Division of IT</li></ul>
+                </div>
+            </div>
+            
+            
+            <!-- Right Column -->
+            <!--Put right column content width calculations here: 
+               1092px -> main Wrapper physical width
+            -   327px -> Left column physical width
+            -   468px -> row wrapper physical width
+            - - - - - - - - - - - - - - - - - - - - - - 
+                297px -> Right column physical width
+            
+                297px -> Right column physical width
+            -    36px -> left padding + right padding
+            -    16px -> left border + right border
+            -    36px -> left margin + right margin
+             - - - - - - - - - - - - - - - - - - - - - - 
+                207px -> Content width
+
+-->        
+            
+            <div class = "columns" id = "right">
+                <H2>Technologies</H2><hr>
+                <ul><li>Git</li>
+                <li>SQL DBs</li>
+                <li>AWS</li>
+                <li>JSP</li>
+                <li>Django</li></ul>
+            </div>
+        </div>
+        <p>Last updated at: 07/04/20</p>
+    </body>
+</html>

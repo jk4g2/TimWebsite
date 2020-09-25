@@ -1,0 +1,199 @@
+<?php
+//	// A user has to have logged in order to have this 'username' cookie
+//	$username = empty($_COOKIE['username']) ? '' : $_COOKIE['username'];
+//	
+//	// If the cookie isn't there, send them back to the login
+//	if (!$username) {
+//		header("Location: index.php");
+//		exit;
+//	} else{
+?>
+<!DOCTYPE html>
+
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    CS2830
+    Final Project    
+-->
+
+<html lang= "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>Last Night matches</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+        <script>
+            var dataArray;
+            window.onload = function(){
+            $.get("navbar.html", function(data){
+                $("#loadingNav").html(data);
+            });
+            $("#wrapperDiv").hide();
+            var url = "https://api.sportsdata.io/v3/nba/scores/json/Players?key=f6c86c152e6b44f7925015e843e25e11";
+
+            // Used some part of the code from Professor Wergeles' code.
+            var xmlHttp0 = new XMLHttpRequest();   
+            xmlHttp0.onreadystatechange = function(){
+                if(xmlHttp0.readyState == 4 && xmlHttp0.status == 200){
+                    dataArray = JSON.parse(xmlHttp0.responseText);
+                }
+            }
+            xmlHttp0.open("GET", url ,true);
+            xmlHttp0.send();
+            }
+
+            function searching(){
+                $("#wrapperDiv").show();
+                var found = 0;
+                document.getElementById("hometown").innerHTML = "";
+                document.getElementById("imageLeft").innerHTML = "";
+                document.getElementById("player").innerHTML = "";
+                document.getElementById("teamName").innerHTML = "";
+                document.getElementById("position").innerHTML = "";
+                document.getElementById("height").innerHTML = "";
+                document.getElementById("weight").innerHTML = "";
+                document.getElementById("birth").innerHTML = "";
+
+                var value = $("#searchingBar").val().toLowerCase();
+
+                for(var i=0; i<dataArray.length; i++){
+                    var playersName = dataArray[i].FanDuelName;
+                    if (value === playersName.toLowerCase()){
+                        $("#wrapperDiv").show();
+                        found = 1;
+                        var teamName = dataArray[i].Team;
+                        if(teamName == "PHI")
+                            teamName = "Philadelphia 76ers";
+                        else if(teamName == "IND")
+                            teamName = "Indiana Pacers";
+                        else if(teamName == "CLE")
+                            teamName = "Cleveland Cavaliers";
+                        else if(teamName == "POR")
+                            teamName = "Portland Trail Blazers";
+                        else if(teamName == "CHA")
+                            teamName = "Charlotte Hornets ";
+                        else if(teamName == "PHO")
+                            teamName = "Phoenix Suns";
+                        else if(teamName == "LAL")
+                            teamName = "Los Angeles Lakers";
+                        else if(teamName == "NY")
+                            teamName = "New York Knicks";
+                        else if(teamName == "ORL")
+                            teamName = "Orlando Magic";
+                        else if(teamName == "OKC")
+                            teamName = "Oklahoma City Thunder";
+                        else if(teamName == "DEN")
+                            teamName = "Denver Nuggets";
+                        else if(teamName== "MIL")
+                            teamName = "Milwaukee Bucks";
+                        else if(teamName == "ATL")
+                            teamName = "Atlanta Hawks";
+                        else if(teamName == "MIN")
+                            teamName = "Minnesota Timberwolves";
+                        else if(teamName == "TOR")
+                             teamName = "Toronto Raptors";
+                        else if(teamName == "BKN")
+                             teamName = "Brooklyn Nets";
+                        else if(teamName == "NO")
+                             teamName = "New Orleans Pelicans";
+                        else if(teamName == "MEM")
+                             teamName = "Memphis Grizzlies";
+                        else if(teamName == "GS")
+                            teamName = "Golden State Warriors";
+                        else if(teamName == "BOS")
+                             teamName = "Boston Celtics";
+                        else if(teamName == "HOU")
+                             teamName = "Houston Rockets";
+                        else if(teamName == "DAL")
+                             teamName = "Dallas Mavericks";
+                        else if(teamName == "CHI")
+                             teamName = "Chicago Bulls";
+                        else if(teamName == "SA")
+                             teamName = "San Antonio";
+                        else if(teamName == "SAC")
+                             teamName = "Sacramento Kings";
+                        else if(teamName == "WAS")
+                             teamName = "Washington Wizards";
+                        else if(teamName == "DET")
+                             teamName = "Detroit Pistons";
+                        else if(teamName == "UTA")
+                             teamName = "Utah Jazz";
+                        else if(teamName == "MIA")
+                             teamName = "Miami Heat";
+                        else if(teamName == "LAC")
+                             teamName = "Los Angeles Clippers";
+
+                        var position = dataArray[i].Position;
+                        var height = (parseFloat(dataArray[i].Height)/12).toFixed(2);
+                        var weight = dataArray[i].Weight;
+                        var converter = dataArray[i].BirthDate;
+                        if(converter == null){
+                            var birthDate = "null";
+                        }else{
+                            var birthDate = converter.slice(0,10);
+                        }
+                        var college = dataArray[i].College;
+                        var photo = dataArray[i].PhotoUrl;
+                        var city = dataArray[i].BirthCity + ", " + dataArray[i].BirthState;
+                        
+                        playersName += " [" + dataArray[i].Jersey + "]";
+                        $("#imageLeft").append("<img src = " + photo + " id= 'image' alt="+playersName +">");
+                        $("#player").html(playersName);
+                        $("#hometown").append("From: " + city);
+                        $("#teamName").append("Team: " + teamName);
+                        $("#position").append("Position: " + position);
+                        $("#height").append("height: " + height + "ft");
+                        $("#weight").append("weight: " + weight + "lb");
+                        $("#birth").append("Birth: " + birthDate);
+                    } 
+
+                } if(found==0){
+                    $("#wrapperDiv").hide();
+                    alert("check out the player's name");
+                }
+            }
+
+            function isClear(){
+                $("#wrapperDiv").hide();
+                document.getElementById("hometown").innerHTML = "";
+                document.getElementById("imageLeft").innerHTML = "";
+                document.getElementById("player").innerHTML = "";
+                document.getElementById("teamName").innerHTML = "";
+                document.getElementById("position").innerHTML = "";
+                document.getElementById("height").innerHTML = "";
+                document.getElementById("weight").innerHTML = "";
+                document.getElementById("birth").innerHTML = "";
+            }
+            </script>
+    </head>
+    <body>
+        <div id ="loadingNav"></div>
+        <div id="searching">
+            <div id="playersDiv">
+                <h1>Searching current NBA Players</h1>
+                <input type="text" name = "player" id="searchingBar" placeholder="ex) Lebron James, Stephen Curry, etc">
+                <div id="buttonDiv">
+                    <button class="button" onclick="searching()" id="userInput">submit</button>
+                    <button class="button" onclick="isClear()" value="reset" >clear</button>
+                </div>
+            </div>
+
+            <div id="wrapperDiv" class="clearhack">
+                <div id=imageLeft></div>
+                    <p id="player"></p><hr>
+                <div id="middleDiv">
+                    <p id="hometown"></p>
+                    <p id="teamName"></p>
+                    <p id="position"></p>
+                    <p id="height"></p>
+                    <p id="weight"></p>
+                    <p id="birth"></p>
+                </div>
+            </div>
+            <h5>The data might be little bit different.</h5>
+        </div>
+        
+    </body>
+</html>
+<?php }?>

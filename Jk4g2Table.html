@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    date: 10/13/19
+    Challenge: Web Servers
+-->
+
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <title>Jk4g2Table</title>
+    <link rel="stylesheet" type="text/css" href="Jk4g2Table.css">
+</head>
+<body>
+    <nav id = "nav">
+        <span class = "name" ><a href = "index.html">Tim Kwon</a> | <a href = "Jk4g2Columns.html">Skills</a> <a href = "Jk4g2Table.html" id="current">Classes</a> <a href = "Jk4g2Projects.html">Projects</a>
+        </span>
+    </nav><br><br><br>
+    
+    <table>
+        <tr>
+            <th id ="leftHeader" colspan = "4">University of Missouri-Columbia</th>
+            <th id ="rightHeader" colspan = "3"><img src="Challenge4Resources/Challenge4Resources/mizzou2.png" alt="Mizzou" id="tigerLogo"></th>
+        </tr>
+        <tr>
+            <th id="tableHeader1" colspan="7">Classes Taken</th>
+        </tr>
+        <tr>
+            <th id =tableHeader2 colspan="7">Fall Semester</th>
+        </tr>
+        <tr id="header">
+            <th class="oddColumn">Professor</th>
+            <th>Class Number</th>
+            <th class="oddColumn">Class Name</th>
+            <th>Description</th>
+            <th class="oddColumn" colspan=2>Assignment Grades</th>
+            <th>Projects</th>
+        </tr>
+        <tr class = oddRow>
+            <td class="oddColumn" rowspan = 4><img src="Challenge4Resources/Challenge4Resources/1.jpg" alt="Professor Wergeles" class="imageLeft1"></td>
+            <td rowspan = 4>CMP_SC 2830</td>
+            <td class="oddColumn" rowspan = 4>Web Application Development I</td>
+            <td rowspan = 4>This course attempt to provide a comprehensive understanding of the evolution, the technologies, and the tools of the Internet</td>
+            <td class= "oddColumn gradeCell100">HW1</td>
+            <td class= "oddColumn gradeCell100">100</td>
+            <td rowspan = 4><ul><li>Advanced Intelligent Tourist Guide</li>
+                    <li>Online Pizza Ordering System</li>
+                    <li>Personality Prediction System Through CV Analysis</li>
+            </ul></td>
+            
+        </tr>
+        <tr class="gradeCell100">
+            <td class="oddColumn">HW2</td>
+            <td class="oddColumn">100</td>
+        </tr>
+        <tr class="gradeCell100">
+            <td class="oddColumn">HW3</td>
+            <td class="oddColumn">100</td>
+            
+        </tr>
+        <tr class="gradeCellNot100">
+            <td class="oddColumn">HW4</td>
+            <td class="oddColumn">70</td>
+        </tr>
+        <tr class = evenRow>
+            <td class="oddColumn" rowspan = 4><img class="imageLeft1" src="Challenge4Resources/Challenge4Resources/2.jpg" alt="Professor"></td>
+            <td rowspan = 4>CMP_SC 4070</td>
+            <td class="oddColumn" rowspan = 4>Numerical Methods for Science and Engineering</td>
+            <td rowspan = 4>How to use the MATLAB platform to find the computational solution of various problems arising in many real world applications</td>
+            <td class= "oddColumn gradeCell100">HW1</td>
+            <td class= "oddColumn gradeCell100">100</td>
+            <td rowspan = 4>
+                <ul><li>Designing an Optimal Fuzzy Logic Controller of a DC Motor</li>
+                    <li>Vehicle number recognition using Matlab</li>
+                    <li>Hydropower Plant Models</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="gradeCell100">
+            <td class="oddColumn">HW2</td>
+            <td class="oddColumn">100</td>
+        </tr>
+        <tr class="gradeCell100">
+            <td class="oddColumn">HW3</td>
+            <td class="oddColumn">100</td>
+            
+        </tr>
+        <tr class="gradeCellNot100">
+            <td class="oddColumn">HW4</td>
+            <td class="oddColumn">70</td>
+        </tr>
+    </table>
+    <div id="wrapperDiv" class="clearhack">
+        <img id="imageLeft" src="Challenge4Resources/Challenge4Resources/1.jpg" alt="Professor Wergeles">
+        <div id="middleDiv">
+            <p>Nick Wergeles</p><hr>
+            <p>Office Hour | 4hrs </p>
+            <p id=classes>Classes | 3hrs</p>
+        </div>
+        <div class="rightDiv">
+            <p>Offices Hours: Wednesdays</p>
+            <p>8:00am - 9.00am | 1:00pm - 3:00pm</p>
+        </div>
+        <div class="rightDiv">
+            <p>Classes: Tuesday and Thursday</p>
+            <p>11:00am - 12:15pm</p>
+        </div>
+    </div>
+    
+</body>
+</html>

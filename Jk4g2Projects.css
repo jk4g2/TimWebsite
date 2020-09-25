@@ -1,0 +1,91 @@
+@font-face{
+    font-family:TimFont;
+    src:url(TurretRoad-Regular.ttf);
+}
+body{
+    margin-left: 0;
+    background-color:floralwhite;
+}
+
+#nav {
+    background-color: darkturquoise;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+#nav a:hover{
+    background-color: coral;
+    color:aliceblue;
+}
+.name {
+    margin: 10px;
+    font-size: 35px;
+    display: block;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+#mainContainer{
+    flex-wrap: wrap;
+    width: 90%;
+    position: relative;
+    margin: auto;  
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    
+}
+
+.cardContainer{
+    width: 450px;
+    background-color: azure;
+    border: 2px solid black;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 10px;
+    border-color: blue;
+    overflow: hidden;
+    
+}
+
+.cardImage{
+    width: 100%;
+    border-bottom: 10px solid black;
+    height: 253px;
+}
+
+.cardTitle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    font-family:TimFont;
+}
+
+#current{
+    background-color: lightgray;
+}
+            
+
+.cardDescription{
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+.cardLink{
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    display:block;
+}
+a:link {
+  text-decoration: none;
+}

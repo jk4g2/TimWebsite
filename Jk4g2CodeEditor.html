@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    date: 10/13/19
+    Challenge: Web Servers
+-->
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <title id ="tim1">Jk4g2 Code Editor</title>
+        <link rel="stylesheet" type="text/css" href="Jk4g2CodeEditor.css">
+        <script src="Jk4g2CodeEditor.js"></script>
+        <style id="css"></style>
+    </head>
+    <body>
+        <div id = "mainWrapper" class= "clearhack">
+            <H1 id = "tim" ondblclick="isTitle()">Jk4g2 Code Editor</H1>
+            
+            <div id = "rowWrappers">
+                <textarea id = "top" ondblclick="defaultTextCSS()" placeholder="CSS"></textarea>
+                <textarea id = "bottom" ondblclick="defaultTextHTML()" placeholder="HTML"></textarea>
+            </div>
+            
+            <div class = "columns" id = "right">
+
+            </div>
+            <div id = "buttons">
+                <button type="button" onclick="htmlButtonFunction()" id = htmlButton>HTML</button>
+                <button type="button" onclick="cssButtonFunction()" id = cssButton>CSS</button>
+                <button type="button" onclick="reset()" id = "resetButton">ERASE</button>
+            </div>
+            <a href="index.html" id=linkingTim><H4>Tim</H4></a>
+        </div>
+    </body>
+</html>

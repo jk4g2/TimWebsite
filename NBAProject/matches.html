@@ -1,0 +1,144 @@
+<?php
+
+//	// A user has to have logged in order to have this 'username' cookie
+//	$username = empty($_COOKIE['username']) ? '' : $_COOKIE['username'];
+//	
+//	// If the cookie isn't there, send them back to the login
+//	if (!$username) {
+//		header("Location: index.php");
+//		exit;
+//	} else{
+?>
+<!DOCTYPE html>
+
+<!--
+    name: Tim Kwon
+    pawprint: jk4g2
+    CS2830
+    Final Project    
+-->
+
+<html lang= "en">
+    <head>
+        <meta charset ="UTF-8">
+        <title>Last Night matches</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div id ="loadingNav"></div>
+        <div id="mainContainer">
+            <div id="match">
+                <H1 class = "title">Lastnight Matches</H1>
+                <div id="matches"></div>
+            </div>
+            <script>
+                window.onload = function(){
+                    $.get("navbar.html", function(data){
+                    $("#loadingNav").html(data);
+                });
+                    
+                //for the yesterday's dates
+                var date = new Date();
+                var month = date.getMonth() + 1;
+                var day = date.getDate() -1;
+                var today = date.getFullYear() + "-" + month + "-" + day;
+
+                //api url
+                var url = "https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsByDate/" + today + "?key=f6c86c152e6b44f7925015e843e25e11";
+                document.getElementById("matches").innerHTML = "";
+
+                var xmlHttp0 = new XMLHttpRequest();   
+                xmlHttp0.onreadystatechange = function(){
+                    if(xmlHttp0.readyState == 4 && xmlHttp0.status == 200){
+                        var json = JSON.parse(xmlHttp0.responseText);
+                        for(var i = 0; i<json.length; i++){
+                            var opponent = json[i].Opponent;
+                            var homeOrAway = json[i].HomeOrAway;
+                            var teamName = json[i].Name + "(" + homeOrAway + ")"; 
+                                if(opponent == "PHI")
+                                    opponent = "Philadelphia 76ers (" + homeOrAway + ")";
+                                else if(opponent == "IND")
+                                    opponent = "Indiana Pacers (" + homeOrAway + ")";
+                                else if(opponent == "CLE")
+                                    opponent = "Cleveland Cavaliers (" + homeOrAway + ")";
+                                else if(opponent == "POR")
+                                    opponent = "Portland Trail Blazers (" + homeOrAway + ")";
+                                else if(opponent == "CHA")
+                                    opponent = "Charlotte Hornets (" + homeOrAway + ")";
+                                else if(opponent == "PHO")
+                                    opponent = "Phoenix Suns (" + homeOrAway + ")";
+                                else if(opponent == "LAL")
+                                    opponent = "Los Angeles Lakers (" + homeOrAway + ")";
+                                else if(opponent == "NY")
+                                    opponent = "New York Knicks (" + homeOrAway + ")";
+                                else if(opponent == "ORL")
+                                    opponent = "Orlando Magic (" + homeOrAway + ")";
+                                else if(opponent == "OKC")
+                                    opponent = "Oklahoma City Thunder";
+                                else if(opponent == "DEN")
+                                    opponent = "Denver Nuggets (" + homeOrAway + ")";
+                                else if(opponent == "MIL")
+                                    opponent = "Milwaukee Bucks (" + homeOrAway + ")";
+                                else if(opponent == "ATL")
+                                    opponent = "Atlanta Hawks (" + homeOrAway + ")";
+                                else if(opponent == "MIN")
+                                    opponent = "Minnesota Timberwolves (" + homeOrAway + ")";
+                                else if(opponent == "TOR")
+                                     opponent = "Toronto Raptors (" + homeOrAway + ")";
+                                else if(opponent == "BKN")
+                                     opponent = "Brooklyn Nets (" + homeOrAway + ")";
+                                else if(opponent == "NO")
+                                     opponent = "New Orleans Pelicans (" + homeOrAway + ")";
+                                else if(opponent == "MEM")
+                                     opponent = "Memphis Grizzlies (" + homeOrAway + ")";
+                                else if(opponent == "GS")
+                                     opponent = "Golden State Warriors (" + homeOrAway + ")";
+                                else if(opponent == "BOS")
+                                     opponent = "Boston Celtics (" + homeOrAway + ")";
+                                else if(opponent == "HOU")
+                                     opponent = "Houston Rockets (" + homeOrAway + ")";
+                                else if(opponent == "DAL")
+                                     opponent = "Dallas Mavericks (" + homeOrAway + ")";
+                                else if(opponent == "CHI")
+                                     opponent = "Chicago Bulls (" + homeOrAway + ")";
+                                else if(opponent == "SA")
+                                     opponent = "San Antonio (" + homeOrAway + ")";
+                                else if(opponent == "SAC")
+                                     opponent = "Sacramento Kings (" + homeOrAway + ")";
+                                else if(opponent == "WAS")
+                                     opponent = "Washington Wizards (" + homeOrAway + ")";
+                                else if(opponent == "DET")
+                                     opponent = "Detroit Pistons (" + homeOrAway + ")";
+                                else if(opponent == "UTA")
+                                     opponent = "Utah Jazz (" + homeOrAway + ")";
+                                else if(opponent == "MIA")
+                                     opponent = "Miami Heat (" + homeOrAway + ")";
+                                else if(opponent == "LAC")
+                                     opponent = "Los Angeles Clippers (" + homeOrAway + ")";
+
+
+                                var win = json[i].Wins;
+                                var lose = json[i].Losses; 
+                                if (win == 1)
+                                    document.getElementById("matches").innerHTML += teamName + " vs " + opponent + " - - - - - - - " + teamName + " won <br><br>";
+                                else if (lose == 1){
+                                    document.getElementById("matches").innerHTML += teamName + " vs " + opponent + " - - - - - - - " + teamName + " lost<br><br>" ;
+                                }
+                                else{
+                                    document.getElementById("matches").innerHTML += teamName + " vs " + opponent + " - - - - - - - " + "The game is not done yet.<br>" ;   
+                                }
+                            }   
+                        }
+                    };
+
+                xmlHttp0.open("GET", url ,true);
+                xmlHttp0.send();
+            }
+            </script>
+        </div>
+        <h5>This might take some times.</h5>
+        <h5>It will not show up, if there was match last night.</h5>
+    </body>
+</html>
+<?php }?>

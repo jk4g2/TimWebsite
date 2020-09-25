@@ -1,0 +1,143 @@
+body{
+    background-color:lightsteelblue;
+}
+#mainContainer{
+    width:70%;
+    margin:auto;
+    margin-top:100px;
+    margin-bottom:100px;
+    border:2px solid black;
+    background-color:azure;
+}
+#header{
+    width:90%;
+    border-bottom: 2px solid black;
+    margin:auto;
+    text-align:center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+#formSection {
+    display:block;
+    text-align: center;
+    position:relative;
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+.name{
+    text-align: center;
+}
+.input{
+    width: 30%;
+    display: inline-block;
+    font-size: 25px;
+    margin: 30px;
+}
+.inputButton{
+    width: 60%;
+    display: inline-block;
+    font-size: 25px;
+    margin: 30px;
+}
+.input2{
+    width: 65%;
+    display: inline-block;
+    font-size: 25px;
+    margin: 30px;
+}
+.func{
+    display:none;
+}
+.dropDownButtonDiv{
+    width:30%;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    display:block;
+    position: relative;
+}
+#dropDownButton{
+    width: 100%;
+    text-align:center;
+    font-size: 20px;
+    background-color: darkslateblue;
+    color: white;
+    cursor:pointer;
+}
+#dropDownButton:hover{
+    background-color:azure;
+    color:blue;
+}
+#dropDownMenu{
+    position:absolute;
+    background-color: cornflowerblue;
+    width:100%;
+    display:none;
+}
+#dropDownMenu a{
+    display:block;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
+#dropDownMenu a:hover{
+    cursor:pointer;
+    background-color:bisque;
+}
+#form1{
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    border: 3px solid black;
+    display:none;
+}
+#form2{
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    border: 3px solid black;
+    display:none;
+}
+#form3{
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    border: 3px solid black;
+    display:none;
+}
+#form4{
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    border: 3px solid black;
+    display:none;
+}
+#picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inputButtonPic{
+    width: 25%;
+    display: block;
+    margin-top:20px;
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:20px;
+}
+#textInput{
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
+    font-size: 25px;
+}
+#textInput2{
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size:15px;
+    
+}
